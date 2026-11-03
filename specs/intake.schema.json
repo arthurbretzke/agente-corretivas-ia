@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Intake de uma issue (fase 1 do pipeline corrigir-issue)",
+  "type": "object",
+  "required": ["issue", "titulo", "sintoma", "esperado", "faltas", "sensiveis"],
+  "properties": {
+    "issue": { "type": "integer", "minimum": 1 },
+    "titulo": { "type": "string" },
+    "sintoma": { "type": "string", "description": "O que o usuário observou, com os valores do relato." },
+    "esperado": { "type": "string", "description": "O que deveria acontecer, do ponto de vista do usuário." },
+    "endpoint": { "type": ["string", "null"], "description": "Endpoint ou funcionalidade citada, quando houver." },
+    "mensagem_erro": { "type": ["string", "null"], "description": "Texto exato, copiado do relato." },
+    "faltas": {
+      "type": "array",
+      "description": "Dados que o relato não traz e que a reprodução precisaria.",
+      "items": { "type": "string" }
+    },
+    "sensiveis": {
+      "type": "array",
+      "description": "Nomes, documentos, e-mails e identificadores do relato. confere-commit.sh procura cada um no diff.",
+      "items": { "type": "string" }
+    }
+  }
+}

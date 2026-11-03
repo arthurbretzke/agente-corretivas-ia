@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Estado de uma execução do pipeline corrigir-issue",
+  "type": "object",
+  "required": ["issue", "modo", "fase", "status", "gates"],
+  "properties": {
+    "issue": { "type": "integer", "minimum": 1 },
+    "modo": { "enum": ["dry-run", "push", "replay"] },
+    "fase": { "type": "integer", "minimum": 1, "maximum": 8 },
+    "status": { "enum": ["em_andamento", "concluido", "parado"] },
+    "tipo": { "enum": ["bug", "comportamento esperado", "melhoria", "incompleta"] },
+    "gates": {
+      "type": "object",
+      "description": "Resultado de cada gate já avaliado, por número da fase.",
+      "additionalProperties": { "enum": ["ok", "falha"] }
+    },
+    "duvidas": {
+      "type": "array",
+      "description": "Decisões que nenhuma regra cobria: insumo para novas regras do pipeline.",
+      "items": { "type": "string" }
+    },
+    "pr": { "type": "string", "format": "uri" }
+  }
+}

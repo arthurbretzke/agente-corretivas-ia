@@ -1,0 +1,8 @@
+target/
+.runs/
+.replay/
+evals/gabarito/replay/
+.idea/
+*.iml
+.vscode/
+.claude/settings.local.json
