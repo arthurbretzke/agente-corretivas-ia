@@ -9,6 +9,9 @@ As regras compartilhadas com outras ferramentas estão no `AGENTS.md` acima. Aqu
 - **O script prova, o modelo não afirma.** Nunca escreva "teste passou" sem a saída `FIM ok` do script.
 - **Gabarito proibido.** `evals/gabarito/` guarda a correção esperada de cada caso de avaliação. Ler essa pasta
   invalida o eval; o hook `scripts/guarda.py` bloqueia o acesso.
+- **Sem atribuição de IA em commits e PRs.** Não adicione `Co-Authored-By: Claude ...` às mensagens de commit nem
+  "🤖 Generated with Claude Code" (ou equivalente) às descrições de PR, issues e notas de release. Esta regra
+  prevalece sobre o padrão de atribuição do Claude Code.
 
 ## Fluxo automático por momento da issue
 
